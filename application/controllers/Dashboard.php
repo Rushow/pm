@@ -66,9 +66,12 @@ class Dashboard extends MY_Controller {
     }
 
     public function save_sticky_note() {
+        
         $note_data = array("sticky_note" => $this->input->post("sticky_note"));
         $this->Users_model->save($note_data, $this->login_user->id);
     }
+
+  
 
 }
 

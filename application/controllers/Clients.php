@@ -136,6 +136,7 @@ class Clients extends MY_Controller {
     /* return a row of client list  table */
 
     private function _row_data($id) {
+        
         $options = array("id" => $id);
         $data = $this->Clients_model->get_details($options)->row();
         return $this->_make_row($data);

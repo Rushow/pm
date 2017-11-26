@@ -6,12 +6,14 @@ if (!defined('BASEPATH'))
 class Events extends MY_Controller {
 
     function __construct() {
+        
         parent::__construct();
         $this->access_only_team_members();
     }
 
     //load calendar view
     function index() {
+
         $this->check_module_availability("module_event");
        
         $this->template->rander("events/index");
@@ -19,6 +21,7 @@ class Events extends MY_Controller {
 
     //show add/edit event modal form
     function modal_form() {
+
         $event_id = decode_id($this->input->post('encrypted_event_id'), "event_id");
         $model_info = $this->Events_model->get_one($event_id);
 

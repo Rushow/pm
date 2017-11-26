@@ -1,6 +1,7 @@
 <div id="sidebar" class="box-content ani-width">
     <div id="sidebar-scroll">
         <ul class="" id="sidebar-menu">
+            
             <?php
             if ($this->login_user->user_type == "staff") {
 
@@ -18,12 +19,16 @@
                 $access_timecard = get_array_value($permissions, "attendance");
                 $access_leave = get_array_value($permissions, "leave");
                 $access_estimate = get_array_value($permissions, "estimate");
+                $access_points = get_array_value($permissions, "points");
+               
 
                 if (get_setting("module_timeline") == "1") {
+
                     $sidebar_menu[] = array("name" => "timeline", "url" => "timeline", "class" => " fa-comments font-18");
                 }
 
                 if (get_setting("module_event") == "1") {
+
                     $sidebar_menu[] = array("name" => "events", "url" => "events", "class" => "fa-calendar");
                 }
 
@@ -37,6 +42,7 @@
 
 
                 if ($this->login_user->is_admin || $access_client) {
+
                     $sidebar_menu[] = array("name" => "clients", "url" => "clients", "class" => "fa-briefcase");
                 }
 
@@ -46,7 +52,17 @@
                         array("name" => "tasks", "url" => "projects/all_tasks")
                 ));
 
-                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
+
+               
+               $sidebar_menu[] = array("name" => "total_team_point", "url" => "team_point/points", "class" => "fa-book font-16");
+               
+               if($this->login_user->is_admin){
+
+                   $sidebar_menu[] = array("name" => "all_team_point", "url" => "team_point/", "class" => "fa-briefcase");
+               }
+              
+
+               if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
 
                     $sidebar_menu[] = array("name" => "estimates", "url" => "estimates", "class" => "fa-file",
                         "submenu" => array(
@@ -134,6 +150,8 @@
 
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects/all_projects", "class" => "fa fa-th-large");
 
+
+
                 if (get_setting("module_estimate")) {
                     $sidebar_menu[] = array("name" => "estimates", "url" => "estimates", "class" => "fa-file");
                 }
@@ -156,6 +174,7 @@
             }
 
             foreach ($sidebar_menu as $main_menu) {
+
                 $submenu = get_array_value($main_menu, "submenu");
                 $expend_class = $submenu ? " expand " : "";
                 $active_class = active_menu($main_menu['name'], $submenu);

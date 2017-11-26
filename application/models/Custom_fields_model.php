@@ -10,6 +10,7 @@ class Custom_fields_model extends Crud_model {
     }
 
     function get_details($options = array()) {
+        
         $custom_fields_table = $this->db->dbprefix('custom_fields');
 
         $where = "";

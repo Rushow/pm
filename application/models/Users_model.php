@@ -38,16 +38,19 @@ class Users_model extends Crud_model {
     }
 
     function login_user_id() {
+
         $login_user_id = $this->session->user_id;
         return $login_user_id ? $login_user_id : false;
     }
 
     function sign_out() {
+
         $this->session->sess_destroy();
         redirect('signin');
     }
 
     function get_details($options = array()) {
+
         $users_table = $this->db->dbprefix('users');
         $team_member_job_info_table = $this->db->dbprefix('team_member_job_info');
 
@@ -90,6 +93,7 @@ class Users_model extends Crud_model {
     }
 
     function is_email_exists($email, $id = 0) {
+        
         $result = $this->get_all_where(array("email" => $email, "deleted" => 0));
         if ($result->num_rows() && $result->row()->id != $id) {
             return $result->row();

@@ -13,6 +13,7 @@ class Timeline extends MY_Controller {
     /* load timeline view */
 
     function index() {
+
         $this->check_module_availability("module_timeline");
 
         $members_options = array(
@@ -20,6 +21,7 @@ class Timeline extends MY_Controller {
             "user_type" => "staff",
             "exclude_user_id" => $this->login_user->id
         );
+        
         $view_data['team_members'] = $this->Users_model->get_details($members_options)->result();
         $this->template->rander("timeline/index", $view_data);
     }
@@ -27,6 +29,7 @@ class Timeline extends MY_Controller {
     /* save a post */
 
     function save() {
+
         validate_submitted_data(array(
             "description" => "required"
         ));

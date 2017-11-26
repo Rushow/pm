@@ -5,6 +5,8 @@
 /* language locale */
 $lang["language_locale"] = "en"; //locale code
 
+$lang[''] = 
+
 /* common */
 $lang["add"] = "Add";
 $lang["edit"] = "Edit";
@@ -345,6 +347,9 @@ $lang["delete_project"] = "Delete project";
 $lang["project"] = "Project";
 $lang["projects"] = "Projects";
 $lang["all_projects"] = "All Projects";
+$lang["total_team_point"] = "Team Points";
+$lang["all_team_point"] = "Create Points";
+$lang["sort_point"] = "Current Points";
 $lang["member"] = "Member";
 $lang["overview"] = "Overview";
 $lang["project_members"] = "Project members";
