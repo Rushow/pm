@@ -5,7 +5,6 @@
 /* language locale */
 $lang["language_locale"] = "en"; //locale code
 
-$lang[''] = 
 
 /* common */
 $lang["add"] = "Add";
