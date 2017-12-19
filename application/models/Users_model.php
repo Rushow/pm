@@ -90,6 +90,7 @@ class Users_model extends Crud_model {
     }
 
     function is_email_exists($email, $id = 0) {
+        
         $result = $this->get_all_where(array("email" => $email, "deleted" => 0));
         if ($result->num_rows() && $result->row()->id != $id) {
             return $result->row();

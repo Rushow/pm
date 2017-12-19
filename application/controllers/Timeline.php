@@ -20,6 +20,7 @@ class Timeline extends MY_Controller {
             "user_type" => "staff",
             "exclude_user_id" => $this->login_user->id
         );
+        
         $view_data['team_members'] = $this->Users_model->get_details($members_options)->result();
         $this->template->rander("timeline/index", $view_data);
     }

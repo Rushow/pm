@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Events extends MY_Controller {
 
     function __construct() {
+        
         parent::__construct();
         $this->access_only_team_members();
     }
